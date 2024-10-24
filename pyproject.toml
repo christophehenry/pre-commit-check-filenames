@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pre-commit-check-filenames"
+version = "0.0.1"
+description = "pre-commit hook to check file names are correct"
+license = { file = "LICENSE" }
+
+authors = [
+    { name = "Christophe Henry", email = "contact@c-henry.fr" }
+]
+
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: Plugins",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+requires-python = ">= 3.9"
+
+dependencies = [
+    "pre-commit>=4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "build",
+    "setuptools",
+    "twine",
+    "ruff",
+]
+
+[project.urls]
+Homepage = "https://github.com/christophehenry/pre-commit-check-filenames"
+Repository = "https://github.com/christophehenry/pre-commit-check-filenames"
+Issues = "https://github.com/christophehenry/pre-commit-check-filenames/issues"
+
+[project.scripts]
+check-filenames = "check_filenames.main:main"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
